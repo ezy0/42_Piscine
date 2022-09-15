@@ -9,7 +9,7 @@ int	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int			i;
 	int			j;
@@ -17,10 +17,10 @@ char	*ft_strchr(const char *s, int c)
 	i = ft_strlen(s);
 	j = 0;
 	while (++j <= i)
-	{
-		if (*s == c)
-			return ((char *)s);
 		s++;
-	}
+	while (*s != c && --j >= 0)
+		s--;
+	if (*s == c)
+		return ((char *)s);
 	return (0);
 }
